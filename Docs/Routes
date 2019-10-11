@@ -1,0 +1,19 @@
+# HTML
+<ul>
+"/" - First - (root)- GET
+"/login"-splash -(login page)- GET
+"/search" - search page(latest 5 results) - GET
+"/display"- display and edit page(frozen to editable property) - GET
+</ul>
+# API
+POST "/api/login"- login operation: POST "/api/login"- sends id
+POST "/api/users"- create new newUser - POST  "/api/users"- send id
+GET "/api/logout/:id"- log out - GET
+GET "/api/users/:id"
+"/api/newthought/:id + body" - create new thought - First page  -POST
+"/api/search/:id + other params"- search from search page - GET
+"/api/display/:id" - return one displayed thought - GET
+"/api/edit/:id   +body"- to update Thoughts, redirect to / POST-PUT
+
+
+

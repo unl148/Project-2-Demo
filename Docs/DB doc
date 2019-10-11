@@ -1,0 +1,5 @@
+Thought_db
+tables - users, categories, thoughts
+users - id, user_name
+categories - id, categories
+thoughts - id,title, rating, notes, date_time, cat_id, User_id
