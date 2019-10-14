@@ -8,5 +8,11 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   });
+
+  Category.associate = function(models) {
+    models.Category.hasMany(models.Thought, {
+      onDelete: "cascade"
+    });
+  };
   return Category;
 };

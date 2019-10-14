@@ -20,5 +20,21 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.DATE
     }
   });
+
+  Thought.associate = function(models) {
+    models.Thought.belongsTo(models.User, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
+  Thought.associate = function(models) {
+    models.Thought.belongsTo(models.Category, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
+
   return Thought;
 };
