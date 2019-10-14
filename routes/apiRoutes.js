@@ -1,18 +1,26 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Get all examples
-  app.get("/api/examples", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.json(dbExamples);
-    });
-  });
+  // POST "/api/users"- create new newUser - POST  "/api/users"- send id
+  app.post("/api/users", function(req, res) {
+    db.User.create(req.body)
+      .then(function(result) {
+        res.render("first", { userName: result.userName, id: result.id });
+        //find all thougths of user with Categories
 
-  // Create a new example
-  app.post("/api/examples", function(req, res) {
-    db.Example.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
-    });
+        // db.User.findByPk(result.id).then(function(list) {
+        //   res.json(list); //testing
+        //   // res.render("search");
+        // });
+      })
+      .catch(function(err) {
+        if (err.parent.errno === 1062) {
+          res.status(404).send("duplicate");
+        } else {
+          res.status(404).send("DB Error");
+          console.log(err);
+        }
+      });
   });
 
   // Delete an example by id

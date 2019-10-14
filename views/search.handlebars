@@ -1,0 +1,100 @@
+<!-- wrapper starts here -->
+<div id="wrapper" class="container ">
+  <div class="row d-flex justify-content-end">
+    <div class="col-sm-3 p-3">
+      <button class="buttonStyle mr-3"><a href="./search.html">User Name</a></button> <button class="buttonStyle"><a
+          href="./splash.html">Log Out</a></button>
+    </div>
+  </div>
+  <!-- Form Begins -->
+  <form>
+    <!-- search bar -->
+    <div class="row text-center justify-content-center">
+      <div class="col-sm-5">
+        <input style="opacity:0.9" class="form-control form-control-lg" type="text" placeholder="search" required>
+      </div>
+    </div>
+    <br>
+    <!-- tabel -->
+    <div class="row justify-content-center">
+      <div class="col-sm-7">
+        <table class="table table-hover text-center ">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Thing</th>
+              <th scope="col">Rate</th>
+              <th scope="col">Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Good drink</td>
+              <td>5</td>
+              <td>06/01/18</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Exelent drink</td>
+              <td>10</td>
+              <td>08/12/19</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>Bad drink</td>
+              <td>2</td>
+              <td>09/01/19</td>
+            </tr>
+          </tbody>
+        </table>
+        <br>
+        <!-- categoty selector -->
+        <div class="row">
+          <div class="col-sm-12">
+            <!-- select of category -->
+            <div class="form-group">
+              <select style="opacity:0.9" class="custom-select" id="selectCat">
+                <option value="">Chose category</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+              <!-- <div class="invalid-feedback">Example invalid custom select feedback</div> -->
+            </div>
+          </div>
+        </div>
+        <!-- submit -->
+        <div class="row text-center">
+          <div class="col-md-12">
+            <button id="search" class="submitSearch buttonStyle r-3" type="submit">Search</button>
+          </div>
+        </div>
+        <!-- date picker-->
+        <div class="row text-center p-3">
+          <div class="col-sm-12">
+            <div class="form-group">
+              from <input class="m-2" type="date" id="dateStart"> to <input class="m-2" type="date" id="dateFinish">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end of form -->
+  </form>
+  <!-- create new thought button -->
+  <div class="row d-flex justify-content-end">
+    <div class="col-sm-3 p-3">
+      <button class="ml-3 buttonStyle"><a href="./first.html">New Thought</a></button>
+    </div>
+  </div>
+  <!-- wrapper ends here -->
+</div>
+
+<!-- <script src="./app.js"></script> -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+  integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
