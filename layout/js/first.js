@@ -1,6 +1,5 @@
-$(document).ready(function () {
-
-  $("#create").on("submit", function (event) {
+$(document).ready(function() {
+  $("#create").on("submit", function(event) {
     event.preventDefault();
     var thought = $("#thought")
       .val()
@@ -23,8 +22,8 @@ $(document).ready(function () {
       comment: comment
     };
     // console.log(newThought);
-    $.post("/api/newthought:" + userId, newThought).then(function (data) {
-
+    // eslint-disable-next-line no-unused-vars
+    $.post("/api/newthought:" + userId, newThought).then(function(data) {
       window.location.href = "./search";
     });
   });
