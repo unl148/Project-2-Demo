@@ -22,7 +22,7 @@ module.exports = function(app) {
     res.render("search");
   });
 
-  app.get("/display", function (req, res) {
+  app.get("/display", function(req, res) {
     res.render("display");
   });
 
