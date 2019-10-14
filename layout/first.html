@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
+   <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -14,7 +16,6 @@
 </head>
 
 <body>
-
         <!-- wrap everything in wrapper if u want particles to be behind -->
         <div id="wrapper" class="container ">
             <!-- User and Log Out Buttons -->
@@ -33,15 +34,15 @@
             <div class="row mt-5 justify-content-center">
                 <div class="col-sm-7">
                     <!-- form starts here -->
-                    <form>
+                    <form id="create">
                         <!-- main input of thing u like or not! -->
                             <input style="opacity:0.9" class="form-control form-control-lg" type="text"
                               id="thought"  placeholder="your thought goes here" required>     
                         <!-- range meter -->
                         <div class="form-group">
                             <label for=""></label>
-                            <input style="opacity: 0.9;" name="range" type="range" min="0" max="10" value="5"
-                                class="form-control-range" id="Range">
+                            <input style="opacity: 0.9;" name="range" type="range" min="1" max="5" value="3"
+                                class="form-control-range" id="range">
                         </div>
                         <!-- categoty selector -->
                         <div class="row">
@@ -49,8 +50,8 @@
                                 <!-- select of category -->
                                 <div class="form-group">
                                     <select style="opacity:0.9" class="custom-select" id="selectCategory">
-                                        <option value="">Chose category</option>
-                                        <option value="1">One</option>
+                                        <option value="general">Chose category</option>
+                                        <option value="restaurant">Restaurant</option>
                                         <option value="2">Two</option>
                                         <option value="3">Three</option>
                                     </select>
@@ -72,7 +73,7 @@
                         <!-- submit -->
                         <div class="row text-center">
                             <div class="col-md-12">
-                                <button class="buttonStyle mr-3" id="create" type="submit">Add feeling</button> <button
+                                <button class="buttonStyle mr-3" type="submit" >Add feeling</button> <button
                                     class=" ml-3 buttonStyle"><a href="./search.html">Cancel</a></button>
                             </div>
                         </div>
@@ -81,10 +82,9 @@
             </div>
             <!-- end of Wrapper -->
         </div>
+    <script src="./js/splash.js"></script>
+    <script src="./js/first.js"></script>
 
-    <!-- <script src="./app.js"></script> -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>

@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
+   <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -23,18 +25,18 @@
                 </div>
             </div>
             <!-- form starts here -->
-            <form>
+            <form id="update">
                 <div class="row mt-3 justify-content-center">
                     <div class="col-sm-7">
                         <!-- main input of thing u like or not! -->
-                        <input style="opacity:0.9" class="form-control form-control-lg" type="text"
+                        <input  id="thought"  style="opacity:0.9" class="form-control form-control-lg" type="text"
                             placeholder="your thought goes here" required>
                         <!-- range meter -->
 
                         <div class="form-group">
                             <label for=""></label>
-                            <input style="opacity: 0.9;" name="range" type="range" min="0" max="10" value="5"
-                                class="form-control-range" id="formControlRange">
+                            <input style="opacity: 0.9;" name="range" type="range" min="1" max="5" value="3"
+                                class="form-control-range" id="range">
                         </div>
 
                         <!-- categoty selector -->
@@ -42,9 +44,9 @@
                             <div class="col-sm-12">
                                 <!-- select of category -->
                                 <div class="form-group">
-                                    <select style="opacity:0.9" class="custom-select" id="selectCat">
+                                    <select style="opacity:0.9" class="custom-select" id="category">
                                         <option value="">Chose category</option>
-                                        <option value="1">One</option>
+                                        <option value="restaurant">restaurant</option>
                                         <option value="2">Two</option>
                                         <option value="3">Three</option>
                                     </select>
@@ -72,7 +74,7 @@
                             </div>
                             <div class="col-md-8">
                                 <!-- submit -->
-                                <button class="buttonStyle mr-3" type="submit"><a href="./display.html">Save</a></button> <button
+                                <button class="buttonStyle mr-3" type="submit">Save</button> <button
                                     class=" ml-3 buttonStyle"><a href="./display.html">Cancel</a></button>
                             </div>
                         </div>
@@ -82,9 +84,12 @@
             </form>
         </div>
 
-    <!-- <script src="./app.js"></script> -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="./js/edit.js"></script>
+    <script src="./js/splash.js"></script>
+    <script src="./js/search.js"></script>
+
+
+   
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
