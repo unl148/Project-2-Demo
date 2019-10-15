@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 //this variables are in global scope and can be accessed from other files
 // if HTML has this script listed, we gonna assign them here,
 // and use them for our routes everywhere
