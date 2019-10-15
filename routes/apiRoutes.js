@@ -10,27 +10,27 @@ module.exports = function(app) {
       })
       .catch(function(err) {
         if (err.parent.errno === 1062) {
-          res.status(404).send("duplicate");
+          res.send("duplicate");
         } else {
-          res.status(404).send("DB Error");
+          res.send("DB Error");
           console.log(err);
         }
       });
   });
 
   app.get("/api/users/:userName", function(req, res) {
+    console.log("GET /api/users:", req.params.userName);
     db.User.findOne({ where: { userName: req.params.userName } })
       .then(function(result) {
-        res.json({ id: result.id });
+        if (result === null) {
+          res.send("not found");
+        } else {
+          res.json({ id: result.id });
+        }
       })
       .catch(function(err) {
-        console.log(err.parent.errno);
-        if (err.parent.errno === 1062) {
-          res.status(404).send("not found");
-        } else {
-          res.status(404).send("DB Error");
-          console.log(err);
-        }
+        res.send("DB Error");
+        console.log(err);
       });
   });
 
