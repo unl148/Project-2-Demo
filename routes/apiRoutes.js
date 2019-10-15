@@ -3,11 +3,15 @@ var db = require("../models");
 module.exports = function(app) {
   // POST "/api/users"- create new newUser - POST  "/api/users"- send id
   app.post("/api/users", function(req, res) {
+    // console.log(req.body.userName);
     db.User.create(req.body)
       .then(function(result) {
-        res.render("first", { userName: result.userName, id: result.id });
+        // console.log(result.dataValues)
+        res.render("first", {
+          userName: result.dataValues.userName,
+          id: result.dataValues.id
+        });
         //find all thougths of user with Categories
-
         // db.User.findByPk(result.id).then(function(list) {
         //   res.json(list); //testing
         //   // res.render("search");

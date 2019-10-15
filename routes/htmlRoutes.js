@@ -13,7 +13,9 @@ module.exports = function(app) {
       });
     });
   });
-
+  app.get("/first", function(req, res) {
+    res.render("first");
+  });
   app.get("/login", function(req, res) {
     res.render("splash");
   });

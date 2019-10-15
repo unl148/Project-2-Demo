@@ -2,6 +2,9 @@
 //this variables are in global scope and can be accessed from other files
 // if HTML has this script listed, we gonna assign them here,
 // and use them for our routes everywhere
+var userName;
+var userId;
+
 $(document).ready(function() {
   $("#signUp").on("click", function(event) {
     event.preventDefault();
@@ -16,16 +19,16 @@ $(document).ready(function() {
       };
       $.post("/api/users", newUser).then(function(data) {
         // error or user id expected
-        console.log(data);
+        // console.log(data);
         if (data === "duplicate") {
           return alert(
             "This user name is already exists, please try another user name!"
           );
         } else if (data === "DB Error") {
           return alert("Sorry, we have problems, try again later");
-        } else {
-          userId = data;
-          window.location.href = "/first?userId=" + userId;
+        }
+        else{
+          
         }
       });
     }
