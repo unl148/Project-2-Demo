@@ -25,7 +25,7 @@ $(document).ready(function() {
           return alert("Sorry, we have problems, try again later");
         } else {
           userId = data;
-          window.location.href = "/first?userId=" + userId;
+        v
         }
       });
     }

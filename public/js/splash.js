@@ -2,9 +2,6 @@
 //this variables are in global scope and can be accessed from other files
 // if HTML has this script listed, we gonna assign them here,
 // and use them for our routes everywhere
-var userName;
-var userId;
-
 $(document).ready(function() {
   $("#signUp").on("click", function(event) {
     event.preventDefault();
@@ -26,9 +23,12 @@ $(document).ready(function() {
           );
         } else if (data === "DB Error") {
           return alert("Sorry, we have problems, try again later");
-        }
-        else{
-          
+        } else {
+          console.log(data);
+          localStorage.clear();
+          localStorage.setItem("id", data.id);
+          localStorage.setItem("userName", data.userName);
+          window.location.href = "/first/" + data.id;
         }
       });
     }
