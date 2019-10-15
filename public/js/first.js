@@ -1,7 +1,4 @@
 $(document).ready(function() {
-
-  console.log(userName)
-  
   $("#create").on("submit", function(event) {
     event.preventDefault();
     var thought = $("#thought")

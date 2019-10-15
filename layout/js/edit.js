@@ -1,15 +1,12 @@
 $(document).ready(function() {
   //when page loads we need to show user data
   //that we have and what he is going to update
-  // var data ={
-  //   thing : "test",
-  //   rate: "1",
-  //   category : "restaurant",
-  //   comment: " asfasfasf comment",
-  //   date : "2019-03-01"
-  // }
+  var query = userId;
+  if (currentEditId) {
+    query += "&currentEditId=" + currentEditId;
+  }
 
-  $.get("/api/search/:" + userId + ":" + curentEdit).then(function(data) {
+  $.get("/api/search/" + query).then(function(data) {
     $("#thought").val(data.thing);
     $("#range").val(data.rate);
     $("#category").val(data.category);
@@ -20,7 +17,7 @@ $(document).ready(function() {
   });
 
   $("#update").on("submit", function(event) {
-    console.log($("#dateChange").val());
+    // console.log($("#dateChange").val());
     event.preventDefault();
     var thought = $("#thought")
       .val()
@@ -45,8 +42,8 @@ $(document).ready(function() {
       date: date
     };
     // eslint-disable-next-line no-unused-vars
-    $.put("/api/edit/:" + userId, updateThought).then(function(data) {
-      window.location.href = "./display";
+    $.put("/api/edit/" + userId, updateThought).then(function(data) {
+      window.location.href = "/display";
     });
   });
 });

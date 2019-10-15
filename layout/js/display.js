@@ -1,5 +1,10 @@
 $(document).ready(function() {
-  $.get("/api/search/:" + userId + ":" + curentEdit).then(function(data) {
+  var query = userId;
+  if (currentEditId) {
+    query += "&currentEditId=" + currentEditId;
+  }
+
+  $.get("/api/display/" + query).then(function(data) {
     $("#thought").text(data.thing);
     $("#range").val(data.rate);
     $("#category").text(data.category);
@@ -10,9 +15,9 @@ $(document).ready(function() {
 
   $("#delete").on("click", function() {
     // eslint-disable-next-line no-unused-vars
-    $.delete("/api/delete/:" + userId, curentEdit).then(function(data) {
+    $.delete("/api/delete/" + userId, currentEditId).then(function(data) {
       alert("This record succsessfully deleted");
-      window.location.href = "./search";
+      window.location.href = "/search";
     });
   });
 });

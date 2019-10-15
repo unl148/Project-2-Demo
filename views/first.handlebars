@@ -1,73 +1,68 @@
-<!-- wrap everything in wrapper if u want particles to be behind -->
-<div id="wrapper" class="container ">
-  <!-- User and Log Out Buttons -->
-  <div class="row d-flex justify-content-end">
-    <div class="col-sm-3 p-3">
-      <button class="buttonStyle mr-3"><a href="./search.html">User Name</a></button> <button class="buttonStyle"><a
-          href="./splash.html">Log Out</a></button>
+<body>
+  <!-- wrap everything in wrapper if u want particles to be behind -->
+  <div id="wrapper" class="container ">
+    <!-- User and Log Out Buttons -->
+    <div class="row d-flex justify-content-end">
+      <div class="col-sm-3 p-3">
+        <span> {{userName}}</span> <button class="buttonStyle"><a href="./splash.html">Log Out</a></button>
+      </div>
     </div>
-  </div>
-  <!-- app name -->
-  <div class="row text-center">
-    <div class="col-sm-12">
-      <h1 class="headingStyles">like it or not</h1>
+    <!-- app name -->
+    <div class="row text-center">
+      <div class="col-sm-12">
+        <h1 class="headingStyles">like it or not</h1>
+      </div>
     </div>
-  </div>
-  <div class="row mt-5 justify-content-center">
-    <div class="col-sm-7">
-      <!-- form starts here -->
-      <form id="create">
-        <!-- main input of thing u like or not! -->
-        <input style="opacity:0.9" class="form-control form-control-lg" type="text" id="thought"
-          placeholder="your thought goes here" required>
-        <!-- range meter -->
-        <div class="form-group">
-          <label for=""></label>
-          <input style="opacity: 0.9;" name="range" type="range" min="1" max="5" value="3" class="form-control-range"
-            id="range">
-        </div>
-        <!-- categoty selector -->
-        <div class="row">
-          <div class="col-sm-12">
-            <!-- select of category -->
-            <div class="form-group">
-              <select style="opacity:0.9" class="custom-select" id="selectCategory">
-                <option value="general">Chose category</option>
-                <option value="restaurant">Restaurant</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-              </select>
-              <!-- <div class="invalid-feedback">Example invalid custom select feedback</div> -->
+    <div class="row mt-5 justify-content-center">
+      <div class="col-sm-7">
+        <!-- form starts here -->
+        <form id="create">
+          <!-- main input of thing u like or not! -->
+          <input style="opacity:0.9" class="form-control form-control-lg" type="text" id="thought"
+            placeholder="your thought goes here" required>
+          <!-- range meter -->
+          <div class="form-group">
+            <label for=""></label>
+            <input style="opacity: 0.9;" name="range" type="range" min="1" max="5" value="3" class="form-control-range"
+              id="range">
+          </div>
+          <!-- categoty selector -->
+          <div class="row">
+            <div class="col-sm-12">
+              <!-- select of category -->
+              <div class="form-group">
+                <select style="opacity:0.9" class="custom-select" id="selectCategory">
+                  <option value="general">Chose category</option>
+                  <option value="restaurant">Restaurant</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+                <!-- <div class="invalid-feedback">Example invalid custom select feedback</div> -->
+              </div>
             </div>
           </div>
-        </div>
-        <!-- Text area-->
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="form-group">
-              <label class="headingStyles" for="comment">
-                <h4>Your comment goes here</h4>
-              </label>
-              <textarea style="opacity:0.8" class="form-control" id="comment" rows="5"></textarea>
+          <!-- Text area-->
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label class="headingStyles" for="comment">
+                  <h4>Your comment goes here</h4>
+                </label>
+                <textarea style="opacity:0.8" class="form-control" id="comment" rows="5"></textarea>
+              </div>
             </div>
           </div>
-        </div>
-        <!-- submit -->
-        <div class="row text-center">
-          <div class="col-md-12">
-            <button class="buttonStyle mr-3" type="submit">Add feeling</button> <button class=" ml-3 buttonStyle"><a
-                href="./search.html">Cancel</a></button>
+          <!-- submit -->
+          <div class="row text-center">
+            <div class="col-md-12">
+              <button class="buttonStyle mr-3" type="submit">Add feeling</button> <button class=" ml-3 buttonStyle"><a
+                  href="./search.html">Cancel</a></button>
+            </div>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
+    <!-- end of Wrapper -->
   </div>
-  <!-- end of Wrapper -->
-</div>
-<script src="./js/splash.js"></script>
-<script src="./js/first.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-  integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="./js/splash.js"></script>
+  <script src="./js/first.js"></script>

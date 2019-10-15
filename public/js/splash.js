@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 //this variables are in global scope and can be accessed from other files
 // if HTML has this script listed, we gonna assign them here,
 // and use them for our routes everywhere
@@ -16,7 +15,7 @@ $(document).ready(function() {
       };
       $.post("/api/users", newUser).then(function(data) {
         // error or user id expected
-        console.log(data);
+        // console.log(data);
         if (data === "duplicate") {
           return alert(
             "This user name is already exists, please try another user name!"
@@ -24,8 +23,11 @@ $(document).ready(function() {
         } else if (data === "DB Error") {
           return alert("Sorry, we have problems, try again later");
         } else {
-          userId = data;
-        v
+          console.log(data);
+          localStorage.clear();
+          localStorage.setItem("id", data.id);
+          localStorage.setItem("userName", data.userName);
+          window.location.href = "/first/" + data.id;
         }
       });
     }
