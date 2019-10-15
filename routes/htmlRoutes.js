@@ -8,12 +8,11 @@ module.exports = function(app) {
     res.render("login");
   });
   app.get("/first/:id", function(req, res) {
-    db.User.findByPk(id).then(function(user) {
+    db.User.findByPk(req.params.id).then(function(user) {
       res.render("first", {
         userName: user.userName
       });
     });
-    res.render("first");
   });
 
   app.get("/search", function(req, res) {
