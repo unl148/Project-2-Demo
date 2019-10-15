@@ -14,12 +14,14 @@ module.exports = function(app) {
     });
   });
   app.get("/first/:id", function(req, res) {
-    db.User.findByPk(req.params.id).then(function(user) {
+    db.User.findByPk(id).then(function(user) {
       res.render("first", {
-        userName: user.userName,
-        id: user.id
+        userName: user,
+        examples: dbExamples
       });
     });
+
+    res.render("first");
   });
   app.get("/login", function(req, res) {
     res.render("splash");
