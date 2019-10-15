@@ -29,7 +29,7 @@ var syncOptions = { force: false };
 
 console.log("Node env", process.env.NODE_ENV);
 
-if (process.env.NODE_ENV === "test" || process.env.NODE_ENV === "development") {
+if (process.env.NODE_ENV === "test") {
   syncOptions.force = true;
 }
 
