@@ -1,9 +1,9 @@
 # HTML
 <ul>
-"/" - First - (root)- GET
-"/login"-splash -(login page)- GET
+"/" - login - (root)- GET
 "/search" - search page(latest 5 results) - GET
 "/display"- display and edit page(frozen to editable property) - GET
+/edit - edit entry
 </ul>
 # API
 POST "/api/login"- login operation: POST "/api/login"- sends id

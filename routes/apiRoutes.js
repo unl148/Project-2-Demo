@@ -18,6 +18,22 @@ module.exports = function(app) {
       });
   });
 
+  app.get("/api/users/:userName", function(req, res) {
+    db.User.findOne({ where: { userName: req.params.userName } })
+      .then(function(result) {
+        res.json({ id: result.id });
+      })
+      .catch(function(err) {
+        console.log(err.parent.errno);
+        if (err.parent.errno === 1062) {
+          res.status(404).send("not found");
+        } else {
+          res.status(404).send("DB Error");
+          console.log(err);
+        }
+      });
+  });
+
   // Delete an example by id
   app.delete("/api/examples/:id", function(req, res) {
     db.Example.destroy({ where: { id: req.params.id } }).then(function(

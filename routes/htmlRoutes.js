@@ -5,24 +5,14 @@ var db = require("../models");
 // "/display"- display and edit page(frozen to editable property) - GET
 module.exports = function(app) {
   app.get("/", function(req, res) {
-    db.User.findAll({}).then(function(dbExamples) {
-      // res.send("Hello");
-      res.render("index", {
-        msg: "Welcome!",
-        examples: dbExamples
-      });
-    });
+    res.render("login");
   });
   app.get("/first/:id", function(req, res) {
     db.User.findByPk(req.params.id).then(function(user) {
       res.render("first", {
-        userName: user.userName,
-        id: user.id
+        userName: user.userName
       });
     });
-  });
-  app.get("/login", function(req, res) {
-    res.render("splash");
   });
 
   app.get("/search", function(req, res) {
