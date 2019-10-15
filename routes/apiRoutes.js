@@ -5,7 +5,7 @@ module.exports = function(app) {
   app.post("/api/users", function(req, res) {
     db.User.create(req.body)
       .then(function(result) {
-        res.render("first", { userName: result.userName, id: result.id });
+        res.json({ userName: result.userName, id: result.id });
         //find all thougths of user with Categories
 
         // db.User.findByPk(result.id).then(function(list) {
