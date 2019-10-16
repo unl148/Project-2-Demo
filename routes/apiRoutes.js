@@ -6,7 +6,10 @@ module.exports = function(app) {
     // console.log(req.body.userName);
     db.User.create(req.body)
       .then(function(result) {
-        res.json({ userName: result.userName, id: result.id });
+        res.json({
+          userName: result.userName,
+          id: result.id
+        });
       })
       .catch(function(err) {
         if (err.parent.errno === 1062) {
@@ -20,12 +23,18 @@ module.exports = function(app) {
 
   app.get("/api/users/:userName", function(req, res) {
     // console.log("GET /api/users:", req.params.userName);
-    db.User.findOne({ where: { userName: req.params.userName } })
+    db.User.findOne({
+      where: {
+        userName: req.params.userName
+      }
+    })
       .then(function(result) {
         if (result === null) {
           res.send("not found");
         } else {
-          res.json({ id: result.id });
+          res.json({
+            id: result.id
+          });
         }
       })
       .catch(function(err) {
@@ -45,12 +54,18 @@ module.exports = function(app) {
       });
   });
 
-  app.get("/api/search/:id", function(req, res) {
-    // console.log("\n\nAPI SEARCH", req.params.id);
-    db.Thought.findAll({ where: { UserId: req.params.id } })
+  app.get("/api/search/:userId", function(req, res) {
+    db.User.findOne({
+      where: {
+        Id: req.params.userId
+      },
+      include: [db.Thought]
+    })
       .then(function(result) {
-        // console.log(result);
-        res.render("search", { thoughts: result });
+        res.render("search", {
+          thoughts: result.Thoughts,
+          userName: result.userName
+        });
       })
       .catch(function(err) {
         res.send("DB Error");
