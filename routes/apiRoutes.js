@@ -77,7 +77,17 @@ module.exports = function(app) {
   // but we used it already for rendering starting search page
   // so i use /search/:id for new searches
   // eslint-disable-next-line no-unused-vars
-  app.get("/search/:id", function(req, res) {
+  app.get("/api/thought/:id", function(req, res) {
+    db.Thought.findOne({ where: { id: req.params.id } })
+      .then(function(result) {
+        console.log("Display Result");
+        console.log(result);
+        res.render("display", { thought: result });
+      })
+      .catch(function(err) {
+        res.send("DB Error");
+        console.log(err);
+      });
     //check out how query look, im not sure what to do with it now.
     console.log(req.params.id);
   });
