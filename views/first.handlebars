@@ -4,7 +4,7 @@
     <!-- User and Log Out Buttons -->
     <div class="row d-flex justify-content-end">
       <div class="col-sm-3 p-3">
-        <span> {{userName}}</span> <button class="buttonStyle"><a href="./splash.html">Log Out</a></button>
+        <span> {{userName}}</span> <button class="buttonStyle"><a href="/">Log Out</a></button>
       </div>
     </div>
     <!-- app name -->
@@ -32,10 +32,10 @@
               <!-- select of category -->
               <div class="form-group">
                 <select style="opacity:0.9" class="custom-select" id="selectCategory">
-                  <option value="general">Chose category</option>
-                  <option value="restaurant">Restaurant</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
+                  <option value="1">Chose category</option>
+                  <option value="2">Restaurant</option>
+                  <option value="3">Two</option>
+                  <option value="4">Three</option>
                 </select>
                 <!-- <div class="invalid-feedback">Example invalid custom select feedback</div> -->
               </div>
@@ -55,8 +55,8 @@
           <!-- submit -->
           <div class="row text-center">
             <div class="col-md-12">
-              <button class="buttonStyle mr-3" type="submit">Add feeling</button> <button class=" ml-3 buttonStyle"><a
-                  href="./search.html">Cancel</a></button>
+              <button class="buttonStyle mr-3" type="submit">Add feeling</button> <button class="ml-3 buttonStyle"><a
+                  href="/search.html">Cancel</a></button>
             </div>
           </div>
         </form>
@@ -64,5 +64,6 @@
     </div>
     <!-- end of Wrapper -->
   </div>
-  <script src="./js/splash.js"></script>
-  <script src="./js/first.js"></script>
+  {{!-- I think we don't need following lone --}}
+  {{!-- <script src="./js/splash.js"></script> --}}
+  <script src="/js/first.js"></script>

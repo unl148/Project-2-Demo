@@ -33,6 +33,15 @@ if (process.env.NODE_ENV === "test") {
   syncOptions.force = true;
 }
 
+// Move after sync to create categories
+// .then(() => {
+//   db.Category.bulkCreate([
+//     { "category": "Not selected" },
+//     { "category": "Restaurant" },
+//     { "category": "Food" },
+//     { "category": "Drink" },
+//   ])
+//  })
 db.sequelize.sync(syncOptions).then(function() {
   app.listen(PORT, function() {
     console.log(
