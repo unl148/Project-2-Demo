@@ -1,30 +1,38 @@
 $(document).ready(function() {
+  console.log("Hello from first.js");
   $("#create").on("submit", function(event) {
     event.preventDefault();
     var thought = $("#thought")
       .val()
       .trim();
     var range = $("#range").val();
-    var category = $("#selectCategory").val();
+    var categoryId = $("#selectCategory").val();
     var comment;
-    if ($("#comment").val()) {
-      comment = $("#comment")
-        .val()
-        .trim();
-    } else {
-      comment = "No comment left";
-    }
 
+    //Do we need this check?
+    // if ($("#comment").val()) {
+    comment = $("#comment")
+      .val()
+      .trim();
+    // } else {
+    //   comment = "No comment left";
+    // }
+
+    var userId = JSON.parse(window.localStorage.getItem("id"));
     var newThought = {
-      thought: thought,
-      range: range,
-      category: category,
-      comment: comment
+      title: thought,
+      rating: range,
+      CategoryId: categoryId,
+      notes: comment,
+      UserId: userId
     };
-    // console.log(newThought);
+    console.log(newThought);
     // eslint-disable-next-line no-unused-vars
-    $.post("/api/newthought/" + userId, newThought).then(function(data) {
-      window.location.href = "/search";
+    $.post("/api/newthought/", newThought).then(function(data) {
+      if (data === "DB Error") {
+        return alert("Sorry, we have problems, try again later");
+      }
+      window.location.href = "/api/search/" + userId;
     });
   });
 });

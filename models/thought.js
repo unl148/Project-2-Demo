@@ -18,6 +18,7 @@ module.exports = function(sequelize, DataTypes) {
     notes: DataTypes.TEXT,
     dateTime: {
       type: DataTypes.DATE
+      // , allowNull: false
     }
   });
 

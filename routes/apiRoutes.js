@@ -33,13 +33,27 @@ module.exports = function(app) {
         console.log(err);
       });
   });
-
-  // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(
-      dbExample
-    ) {
-      res.json(dbExample);
-    });
+  app.post("/api/newthought", function(req, res) {
+    // console.log("\nREQ BODY:", req.body);
+    db.Thought.create(req.body)
+      .then(function() {
+        res.end();
+      })
+      .catch(function(err) {
+        res.send("DB Error");
+        console.log(err);
+      });
+  });
+  app.get("/api/search/:id", function(req, res) {
+    console.log("\n\nAPI SEARCH", req.params.id);
+    db.Thought.findAll({ where: { UserId: req.params.id } })
+      .then(function(result) {
+        console.log(result);
+        res.render("search", { thoughts: result });
+      })
+      .catch(function(err) {
+        res.send("DB Error");
+        console.log(err);
+      });
   });
 };
