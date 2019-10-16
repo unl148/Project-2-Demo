@@ -30,12 +30,15 @@
           </thead>
           <tbody id="tableBody">
             {{#each thoughts}}
-            <tr>
+            {{!-- creating this row with class and data-id
+             when we click on row we will go to display screen
+             data-id should help us render same record on display screen--}}
+            <tr class="edit" data-id="{{id}}">
               <td> {{id}}</td>
               <td>{{title}}</td>
-              <td>5</td>
-              <td>06/01/18</td>
-              <td>Restaurant</td>
+              <td>{{rating}}</td>
+              <td>{{dateTime}}</td>
+              <td>{{CategoryId}}</td>
             </tr>
         
             {{/each}}

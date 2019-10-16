@@ -19,7 +19,7 @@ module.exports = function(app) {
   });
 
   app.get("/api/users/:userName", function(req, res) {
-    console.log("GET /api/users:", req.params.userName);
+    // console.log("GET /api/users:", req.params.userName);
     db.User.findOne({ where: { userName: req.params.userName } })
       .then(function(result) {
         if (result === null) {
@@ -44,16 +44,26 @@ module.exports = function(app) {
         console.log(err);
       });
   });
+
   app.get("/api/search/:id", function(req, res) {
-    console.log("\n\nAPI SEARCH", req.params.id);
+    // console.log("\n\nAPI SEARCH", req.params.id);
     db.Thought.findAll({ where: { UserId: req.params.id } })
       .then(function(result) {
-        console.log(result);
+        // console.log(result);
         res.render("search", { thoughts: result });
       })
       .catch(function(err) {
         res.send("DB Error");
         console.log(err);
       });
+  });
+  //ROUTE FOR SEARCH INSIDE SEARCH HTML!!!!!!
+  // according to routes file it should be /api/search/:id
+  // but we used it already for rendering starting search page
+  // so i use /search/:id for new searches
+  // eslint-disable-next-line no-unused-vars
+  app.get("/search/:id", function(req, res) {
+    //check out how query look, im not sure what to do with it now.
+    console.log(req.params.id);
   });
 };

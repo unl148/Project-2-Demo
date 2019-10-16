@@ -24,7 +24,9 @@ $(document).ready(function() {
       rating: range,
       CategoryId: categoryId,
       notes: comment,
-      UserId: userId
+      UserId: userId,
+      //added simple date capture, rendering ugly
+      dateTime: Date()
     };
     console.log(newThought);
     // eslint-disable-next-line no-unused-vars
