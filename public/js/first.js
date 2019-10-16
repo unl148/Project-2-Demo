@@ -1,6 +1,5 @@
 $(document).ready(function() {
-  console.log("Hello from first.js");
-  $("#create").on("submit", function(event) {
+  $("#create").on("click", function(event) {
     event.preventDefault();
     var thought = $("#thought")
       .val()
@@ -8,16 +7,9 @@ $(document).ready(function() {
     var range = $("#range").val();
     var categoryId = $("#selectCategory").val();
     var comment;
-
-    //Do we need this check?
-    // if ($("#comment").val()) {
     comment = $("#comment")
       .val()
       .trim();
-    // } else {
-    //   comment = "No comment left";
-    // }
-
     var userId = JSON.parse(window.localStorage.getItem("id"));
     var newThought = {
       title: thought,
@@ -36,5 +28,10 @@ $(document).ready(function() {
       }
       window.location.href = "/api/search/" + userId;
     });
+  });
+  $("#cancel").on("click", function(event) {
+    event.preventDefault();
+    var userId = JSON.parse(window.localStorage.getItem("id"));
+    window.location.href = "/api/search/" + userId;
   });
 });
