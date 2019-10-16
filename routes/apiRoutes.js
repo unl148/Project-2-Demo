@@ -59,9 +59,16 @@ module.exports = function(app) {
       where: {
         Id: req.params.userId
       },
-      include: [db.Thought]
+      include: [
+        {
+          model: db.Thought,
+          include: [db.Category]
+        }
+      ]
     })
-      .then(function(result) {
+      .then(function (result) {
+        console.log('\n\n_______________________________');
+        console.log(JSON.stringify(result.Thoughts[0], null, 2));
         res.render("search", {
           thoughts: result.Thoughts,
           userName: result.userName
