@@ -23,6 +23,26 @@ module.exports = function(app) {
     res.render("display");
   });
 
+  app.get("/admin/:command", function(req, res) {
+    if (req.params.command === "cat") {
+      db.Category.bulkCreate([
+        { category: "Not selected" },
+        { category: "Restaurant" },
+        { category: "Food" },
+        { category: "Drink" }
+      ])
+        .then(function() {
+          res.send("Categories created");
+        })
+        .catch(function(err) {
+          res.send("Can't create Categories");
+          console.log(err);
+        });
+    } else {
+      res.send("Bad request");
+    }
+  });
+
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404");
