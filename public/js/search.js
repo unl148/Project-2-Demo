@@ -31,6 +31,8 @@ $(document).ready(function() {
 
   //when user click on any created row it will send him to edit page
   $(document).on("click", ".edit", function() {
-    window.location.href = "/display/" + userId;
+    var rowId = $(this).data("id");
+    console.log(rowId);
+    window.location.href = "/api/thought/" + rowId;
   });
 });
