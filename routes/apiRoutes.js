@@ -1,20 +1,34 @@
 var moment = require("moment");
+var jwt = require("jsonwebtoken");
 
 var db = require("../models");
 
 module.exports = function(app) {
-  // POST "/api/users"- create new newUser - POST  "/api/users"- send id
+  //
+  //    Creating a new User, sending back id
+  //
   app.post("/api/users", function(req, res) {
-    // console.log(req.body.userName);
     db.User.create(req.body)
       .then(function(result) {
-        res.json({
+        var newUser = {
           userName: result.userName,
           id: result.id
+        };
+        console.log(newUser.id);
+        jwt.sign({ user: newUser }, "secretkey", function(err, token) {
+          if (err) {
+            console.log(err);
+            res.end();
+          }
+          res.json({ token: token, id: result.id });
         });
+        // res.json({
+        //   userName: result.userName,
+        //   id: result.id
+        // });
       })
       .catch(function(err) {
-        if (err.parent.errno === 1062) {
+        if (err && err.parent.errno === 1062) {
           res.send("duplicate");
         } else {
           res.send("DB Error");
