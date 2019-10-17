@@ -1,3 +1,5 @@
+var moment = require("moment");
+
 var db = require("../models");
 
 module.exports = function(app) {
@@ -67,7 +69,11 @@ module.exports = function(app) {
       ]
     })
       .then(function(result) {
-        // console.log(JSON.stringify(result.Thoughts[0], null, 2));
+        result.Thoughts.forEach(function(element) {
+          element.dateTimeFormated = moment(element.dateTime).format(
+            "M/D/Y h:m a"
+          );
+        });
         res.render("search", {
           thoughts: result.Thoughts,
           userName: result.userName

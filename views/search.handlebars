@@ -34,13 +34,12 @@
              when we click on row we will go to display screen
              data-id should help us render same record on display screen--}}
             <tr class="edit" data-id="{{id}}">
-              <td> {{id}}</td>
+              <td>{{id}}</td>
               <td>{{title}}</td>
               <td>{{rating}}</td>
-              <td>{{dateTime}}</td>
-              <td>{{CategoryId}}</td>
-            </tr>
-        
+              <td>{{dateTimeFormated}}</td>
+              <td>{{Category.category}}</td>
+            </tr>       
             {{/each}}
           </tbody>
         </table>
