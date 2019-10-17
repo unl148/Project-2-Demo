@@ -17,7 +17,6 @@ $(document).ready(function() {
       CategoryId: categoryId,
       notes: comment,
       UserId: userId,
-      //added simple date capture, rendering ugly
       dateTime: Date()
     };
     console.log(newThought);
