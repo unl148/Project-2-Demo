@@ -9,8 +9,11 @@ module.exports = function(app) {
   });
   app.get("/first/:id", function(req, res) {
     db.User.findByPk(req.params.id).then(function(user) {
-      res.render("first", {
-        userName: user.userName
+      db.Category.findAll().then(function(categories) {
+        res.render("first", {
+          userName: user.userName,
+          categories: categories
+        });
       });
     });
   });
@@ -24,23 +27,32 @@ module.exports = function(app) {
   });
 
   app.get("/admin/:command", function(req, res) {
-    if (req.params.command === "cat") {
-      db.Category.bulkCreate([
-        { category: "Not selected" },
-        { category: "Restaurant" },
-        { category: "Food" },
-        { category: "Drink" }
-      ])
-        .then(function() {
-          res.send("Categories created");
-        })
-        .catch(function(err) {
-          res.send("Can't create Categories");
-          console.log(err);
-        });
-    } else {
+    if (req.params.command !== "cat") {
       res.send("Bad request");
     }
+    db.Category.findAll()
+      .then(function(catList) {
+        if (catList.length !== 0) {
+          res.send("Category in DB already");
+        }
+        db.Category.bulkCreate([
+          { category: "Not selected" },
+          { category: "Restaurant" },
+          { category: "Food" },
+          { category: "Drink" }
+        ])
+          .then(function() {
+            res.send("Categories created");
+          })
+          .catch(function(err) {
+            res.send("Can't create Categories");
+            console.log(err);
+          });
+      })
+      .catch(function(err) {
+        res.send("Can't create Categories");
+        console.log(err);
+      });
   });
 
   // Render 404 page for any unmatched routes

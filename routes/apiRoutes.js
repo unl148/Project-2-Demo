@@ -66,9 +66,8 @@ module.exports = function(app) {
         }
       ]
     })
-      .then(function (result) {
-        console.log('\n\n_______________________________');
-        console.log(JSON.stringify(result.Thoughts[0], null, 2));
+      .then(function(result) {
+        // console.log(JSON.stringify(result.Thoughts[0], null, 2));
         res.render("search", {
           thoughts: result.Thoughts,
           userName: result.userName

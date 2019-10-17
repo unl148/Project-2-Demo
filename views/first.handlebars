@@ -30,10 +30,9 @@
             <!-- select of category -->
             <div class="form-group">
               <select style="opacity:0.9" class="custom-select" id="selectCategory">
-                <option value="1">Chose category</option>
-                <option value="2">Restaurant</option>
-                <option value="3">Two</option>
-                <option value="4">Three</option>
+                {{#each categories}}
+                  <option value="{{id}}">{{category}}</option>
+                {{/each}}
               </select>
               <!-- <div class="invalid-feedback">Example invalid custom select feedback</div> -->
             </div>
